@@ -8,7 +8,12 @@ app.set('view engine', 'ejs');
 app.use('/articles', artRouter)
 
 app.get('/', (req, res)=> {
-    res.render('index', { text: 'BULL'});
+    const articles = [{
+        title: 'Test Article',
+        createdAt: Date.now(),
+        description: 'Test Article Description'
+    }]
+    res.render('index', { articles: articles });
 })
 
 app.listen(port, ()=>{

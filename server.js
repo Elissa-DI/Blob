@@ -19,7 +19,7 @@ app.get('/', (req, res)=> {
         description: 'Test Article Description 2'
     }
     ]
-    res.render('index', { articles: articles });
+    res.render('articles/index', { articles: articles });
 })
 
 app.listen(port, ()=>{

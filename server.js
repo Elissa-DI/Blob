@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const artRouter = require('./routes/article');
 const app = express();
 port = 5000;
@@ -6,6 +7,11 @@ port = 5000;
 app.set('view engine', 'ejs');
 
 app.use('/articles', artRouter)
+
+mongoose.connect('mongodb://127.0.0.1/blog', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 app.get('/', (req, res)=> {
     const articles = [{

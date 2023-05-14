@@ -7,6 +7,7 @@ port = 5000;
 app.set('view engine', 'ejs');
 
 app.use('/articles', artRouter)
+app.use(express.urlencoded({ extended: false }));
 
 mongoose.connect('mongodb://127.0.0.1/blog', {
     useNewUrlParser: true,

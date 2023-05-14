@@ -4,15 +4,16 @@ const artRouter = require('./routes/article');
 const app = express();
 port = 5000;
 
-app.set('view engine', 'ejs');
-
-app.use('/articles', artRouter)
-app.use(express.urlencoded({ extended: false }));
-
 mongoose.connect('mongodb://127.0.0.1/blog', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
+
+app.set('view engine', 'ejs');
+
+app.use(express.urlencoded({ extended: false }));  
+app.use('/articles', artRouter)
+
 
 app.get('/', (req, res)=> {
     const articles = [{
